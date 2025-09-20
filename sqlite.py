@@ -23,3 +23,15 @@ cursor.execute("INSERT INTO STUDENT VALUES('Ravi','Cloud Computing','C')")
 cursor.execute("INSERT INTO STUDENT VALUES('Rohit','Data science','A')")
 cursor.execute("INSERT INTO STUDENT VALUES('Rajesh','Data science','B')")
 cursor.execute("INSERT INTO STUDENT VALUES('Rajat','DEVOPS','C')")
+
+
+
+# display records
+print("the inserted records are:")
+data = cursor.execute("SELECT * FROM STUDENT")
+
+for row in data:
+    print(row)
+
+connection.commit()
+connection.close()
