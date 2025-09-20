@@ -47,3 +47,14 @@ prompt = [
 
 st.set_page_config(page_title="Text to SQL", page_icon="🔍")
 st.header("Gemini App to retrieve SQL data")
+
+
+question = st.text_input("Input: ", key="input")
+submit = st.button("Submit")
+
+if submit:
+    result = get_gemini_response(question, prompt)
+    response = read_sql_query(result, "student.db")
+    st.subheader("Output:")
+    for row in response:
+        st.header(row)
